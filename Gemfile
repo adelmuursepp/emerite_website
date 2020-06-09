@@ -79,7 +79,7 @@ gem 'rack-attack', '~> 5.0', '>= 5.0.1'
 gem 'petergate', '~> 1.7', '>= 1.7.3'
 
 # Pagination
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 # Nested Forms
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
