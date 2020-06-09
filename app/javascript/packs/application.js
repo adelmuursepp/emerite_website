@@ -11,4 +11,4 @@ require("components/StickyNav.js")
 import "@fortawesome/fontawesome-free/css/all.css";
 import "bootstrap";
 import "../style/application.sass"
-import "../home_page"
+
