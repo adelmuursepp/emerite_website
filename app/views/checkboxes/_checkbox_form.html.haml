@@ -1,0 +1,7 @@
+- unless current_user.is_a? GuestUser
+  = form_for @checkbox, url: "#" do |f|
+    %div
+      =check_box_tag "id i dont need right now",  1, !!(checkbox.checked)
+      =checkbox.label
+      = f.text_area "content", "aria-label" => "Comment Content"
+    = f.submit "Post Comment"

@@ -1,0 +1,12 @@
+%div
+  .row.row--full-height.relative
+    .row__medium-1-2
+      = image_tag 'https://res.cloudinary.com/adelcloud/image/upload/v1583819796/christian-fregnan-pvyWk-nXDNs-unsplash_drhzer.jpg', :alt => 'Blog', :class => 'img--full-height img--background img--grayscaled'
+      .overlay.overlay--dark-color
+      .container.container--full-height.container--centered-vh
+        %h1.section-title= "Blog Posts"
+.page-section
+  .container
+    = paginate @blogs
+    = render partial: 'blog', collection: @blogs
+    = paginate @blogs

@@ -1,0 +1,9 @@
+%div
+  %h1= "Editing #{@resource_item.title}"
+  = render 'form', item: @resource_item
+
+  = link_to 'View Post', @resource_item
+  = link_to 'Back to item', resource_items_path
+
+
+/ # DONE

@@ -1,0 +1,38 @@
+.row.row--short.relative
+  .row__medium-1-2
+    = image_tag 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80', :alt => 'Computer', :class => 'img--full-height img--background img--grayscaled'
+    .overlay.overlay--dark-color
+.page-section
+  .container
+    %h2.section-title= @resource_item.title
+    %p= "Published #{distance_of_time_in_words(@resource_item.created_at, Time.now)} ago"
+    %p= pluralize @resource_item.resource_comments.count, "comment"
+    %nav.breadcrumb
+      = link_to 'Classes', resource_topic_path(@resource_item.resource_topic_id), class: "breadcrumb-item"
+      %span.breadcrumb-item.active= @resource_item.title
+      - if logged_in?(:site_admin)
+        %div
+          = link_to edit_resource_item_path(@resource_item) do
+            %i.fa.fa-pencil-square-o
+          = button_to @resource_item, :method => :delete, :data => { :confirm => "Are you sure you want to delete that class?" }, :class => 'button button--to-delete' do
+            %i.fa.fa-trash
+
+    .generic-content-container
+      / - @resource_item.photos.each do |photo|
+      /   %li= cl_image_tag photo.key, height: 300, width: 400
+      = markdown @resource_item.body
+    / %h4.section-title= "Tasks"
+    / = render partial: 'checkboxes/checkbox', collection: @resource_item.checkboxes.by_recent
+    - if @resource_item.questions.count > 2
+      %h4.section-title.topic-title= "Quiz"
+      = render partial: 'questions/question', collection: @resource_item.questions.by_recent
+
+    - if @resource_item.cdong_task != ""
+      %h4.section-title.topic-title= "Practice"
+    = render partial: 'cdong_task'
+    - if @resource_item.written_task != nil
+      %h2.section-title.topic-title= "Ask or write"
+      = markdown @resource_item.written_task
+    #comments{"data-resource_item-id" => @resource_item.id}
+      = render partial: 'resource_comments/resource_comment', collection: @resource_item.resource_comments.by_recent
+    = render "resource_comments/resource_comment_form"

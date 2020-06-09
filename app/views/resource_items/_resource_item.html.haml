@@ -1,0 +1,11 @@
+.page-section
+  %h3.section-title.topic-title= link_to resource_item.title, resource_item_path(resource_item)
+  %p= "Published #{distance_of_time_in_words resource_item.created_at, Time.now} ago"
+  %p= pluralize resource_item.resource_comments.count, "comment"
+
+  = render partial: 'resource_items/admin_actions', locals: {:resource_item => resource_item}
+
+
+
+
+/ # DONE

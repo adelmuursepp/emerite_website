@@ -1,0 +1,10 @@
+= cl_image_tag @portfolio_item.main_image, :width => "100%"
+.page-section
+  .container
+    %h2.section-title= @portfolio_item.title
+    %p= @portfolio_item.subtitle
+    .generic-content-container
+      %p= markdown @portfolio_item.body
+- if logged_in?(:site_admin)
+  .container
+    = link_to "Edit Item", edit_portfolio_path(@portfolio_item)

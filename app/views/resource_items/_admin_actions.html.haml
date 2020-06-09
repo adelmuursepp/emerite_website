@@ -1,0 +1,8 @@
+- if logged_in?(:site_admin)
+  %nav.breadcrumb.blogcrumb
+    = link_to toggle_status_resource_item_path(resource_item) do
+      %i{'class' => 'fa fa-file-text breadcrumb-item', 'style' => resource_item_status_color(resource_item)}
+    = link_to edit_resource_item_path(resource_item) do
+      %i.fas.fa-pen
+    = button_to @resource_item, :method => :delete, :data => { :confirm => "Are you sure you want to delete that post?" }, :class => 'button button--to-delete' do
+      %i.fa.fa-trash.breadcrumb-item

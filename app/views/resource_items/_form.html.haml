@@ -1,0 +1,82 @@
+%br
+%br
+%br
+%br
+%br
+%br
+
+= simple_form_for item do |f|
+  - if item.errors.any?
+    - item.errors.full_messages.each do |error|
+      = alert_generator(error, :error, "Error")
+  %div.form-group
+    = f.label :title
+    = f.text_field :title, cols: 100
+  %div.form-group
+    = f.label :created_at, "Publish Date"
+    = f.date_field :created_at, value: (item.created_at || Time.now)
+  %div.form-group
+    / = f.input :resource_topic_id, collection: ResourceTopic.all.map{|topic| [topic.title, topic.id]}, selected: 1, "aria-label" => "Topic"
+    = f.collection_select :resource_topic_id, ResourceTopic.all, :id, :title, {:prompt => "Please select a topic"}, "aria-label" => "Topic"
+  %div.form-group
+    = f.label :body
+    = f.text_area :body, rows: 80, cols: 150
+  %div.form-group
+    = f.label :WrittenTask
+    = f.text_area :written_task, rows: 8, cols: 150
+  %div.form-group
+    = f.label :CodingTask
+    = f.text_area :cdong_task, rows: 8, cols: 150
+  %div.form-group
+    = f.label :WrittenTask
+    = f.text_area :written_task, rows: 8, cols: 150
+  / %div.form-group
+  /   = f.label :checkbox
+  /   = f.text_area :checkboxes, rows: 15, cols: 150
+  %ul
+    = f.fields_for :questions do |question_form|
+      %div.form-group
+        =question_form.label :Question
+        =question_form.text_area :question_text, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Option1
+        =question_form.text_area :option1, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Explanation1
+        =question_form.text_area :explanation1, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Option2
+        =question_form.text_area :option2, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Explanation2
+        =question_form.text_area :explanation2, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Option3
+        =question_form.text_area :option3, rows: 3, cols: 100
+      %div.form-group
+        =question_form.label :Explanation3
+        =question_form.text_area :explanation3, rows: 3, cols: 100
+  %ul
+    = f.fields_for :checkboxes do |box_form|
+      %div.form-group
+        =box_form.label :Task
+        =box_form.text_area :label, rows: 1, cols: 100
+  %div.form-group
+    = f.input :photos, as: :file, input_html: { multiple: true }
+  %div.form-group
+    = f.submit
+
+
+/ Addresses:
+/   <ul>
+/     <%= f.fields_for :addresses do |addresses_form| %>
+/       <li>
+/         <%= addresses_form.label :kind %>
+/         <%= addresses_form.text_field :kind %>
+
+/         <%= addresses_form.label :street %>
+/         <%= addresses_form.text_field :street %>
+/         ...
+/       </li>
+/     <% end %>
+/   </ul>

@@ -1,0 +1,6 @@
+/ - unless current_user.is_a? GuestUser
+= form_for [@resource_item, @resource_comment] do |f|
+  %div.form-group
+    = f.text_area "content", "aria-label" => "Written answer", rows: 15
+  .button.button--outline
+  = f.submit "Post", "class" => "button"

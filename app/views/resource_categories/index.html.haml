@@ -1,0 +1,10 @@
+.row.row--short.relative
+  .row__medium-1-2
+    = image_tag 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', :alt => 'Coding books', :class => 'img--full-height img--background img--grayscaled'
+    .overlay.overlay--dark-color
+.page-section
+  .container
+    %h1.section-title= "Resources"
+    = source_helper "alert alert-info"
+    .row.row--gutters
+      = render :partial => "resource_category", :collection => @resource_categories

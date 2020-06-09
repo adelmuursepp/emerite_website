@@ -1,0 +1,50 @@
+<br>
+<br>
+<h3><%= markdown question.question_text%></h3>
+<% if question.option1 != nil %>
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne<%=question.id%>" aria-expanded="false" aria-controls="collapseOne<%=question.id%>">
+          <%= markdown question.option1%>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne<%=question.id%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= markdown question.explanation1 %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo<%=question.id%>" aria-expanded="false" aria-controls="collapseTwo<%=question.id%>">
+          <%= markdown question.option2%>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo<%=question.id%>" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= markdown question.explanation2 %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree<%=question.id%>" aria-expanded="false" aria-controls="collapseThree<%=question.id%>">
+          <%= markdown question.option3%>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree<%=question.id%>" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= markdown question.explanation3 %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

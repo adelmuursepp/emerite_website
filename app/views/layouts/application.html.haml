@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{"name" => "charset", "content" => "utf-8"}
+    %meta{"name" => "viewport", "content" => "width=device-width", "initial-scale" => 1, "shrink-to-fit" => "no"}
+    %title= @page_title
+    = csrf_meta_tags
+    %meta{"name" => "description", "content" => ""}
+    %meta{"name" => "author", "content" => "Adel Muursepp"}
+    %meta{"name" => "keywords", "content" => ""}
+
+    / %link{"rel" => "stylesheet", "href" =>"https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">}
+
+
+    = stylesheet_pack_tag 'application'
+
+
+  %body
+    %div#root
+    = render "shared/application_nav"
+    - if flash['alert'] || flash['notify'] || flash['error']
+      %div.alert__alert-box
+        = alerts
+    = yield
+    = render "shared/application_footer"
+
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'

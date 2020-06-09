@@ -1,0 +1,73 @@
+%div
+  .row.row--full-height
+    .row__1-2
+      = image_tag "https://images.unsplash.com/photo-1524654458049-e36be0721fa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80", :alt => "woman typing on laptop computer", :class => "img--full-height img--background-until-medium"
+    .row__small-2-2__medium-1-2
+      .container.container--full-height.container--centered-vh.container--overlay-until-medium-dark
+        %h1.section-title.animated.fadeInUp.delay-1s= "Emerite coding"
+        %p.animated.fadeInUp.delay-2s= "Website creation, iOS development and more"
+        = link_to "Learn More", about_path, :class => "button button--outline"
+
+<div>
+  <div class= "row h-100">
+    <div class="row w-50"></div>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg" class: "img--full-height img--background-until-medium"%>
+    <div class="row w-50">
+      <div class="container container--full-height container--centered-vh container--overlay-until-medium-dark">
+        <h1 class="section-title animated fadeInUp delay-1s">Emerite coding</h1>
+        <p class="animated fadeInUp delay-2s">Website creation, iOS development and more</p>
+        <a href="/about" class="button button--outline">Learn more</a>
+    </div>
+  </div> 
+</div>
+.page-section.page-section--light-accent.relative
+  .container.generic-content-container
+    %h2.section-title.topic-title= "Ruby on Rails development"
+    .row
+      .row__large-3-5
+        %p
+          = "Rails is a framework for creating websites easily."
+          / %span.cursive= "I'm working on that one."
+        %p= "Apps like Instagram and AirBnB have been built using Rails"
+        %p= ""
+        / = link_to portfolios_path do
+        /   :markdown
+        /     Look at Rails projects ➡
+  / = image_tag "https://res.cloudinary.com/adelcloud/image/upload/v1583609132/veebileht_ynlgb4.jpg", :height => "500", :width => "500", :alt => "Adel Müürsepp", :class => "img--absolute-br img--backward-until-large reveal-item"
+
+<div class="page-section page-section--light-accent relative">
+  <div class="container generic-content-container">
+    <h2 class="section-title topic-title">Ruby on Rails development</h2>
+    <div class="row">
+
+    </div>
+  </div>
+</div>
+
+page-section
+  .container
+    %h2.section-title.topic-title= "iOS development"
+    %p= "Swift is the easiest way to write iPhone apps"
+    / %p= ""
+    / = link_to resource_categories_path do
+    /   :markdown
+    /     Check them out ➡
+/ .page-section
+/   .container.container--narrow.container--centered.generic-content-container
+/     %h2.section-title= "Want to work together?"
+/     %p
+/       :markdown
+/         Are you working on something useful and need a technical person who's your users' *best* advocate? I'd love to get involved. [Get in touch](#{contact_path})
+
+%div
+  .row.row--full-height.relative
+    .row__medium-1-2
+      = image_tag 'https://images.unsplash.com/photo-1524654458049-e36be0721fa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80', :alt => 'Old TOwn', :class => 'img--full-height img--background img--grayscaled'
+      .overlay.overlay--dark-color
+      .container.container--middle-height.container--centered-vh
+        %h1.section-title--white= "Emerite"
+.page-section
+  .container.generic-content-container
+    %h2.section-title= "Website creation, iOS development and more"
+    %p= "Emerite is a small company based in Tallinn"
+    %p= ""

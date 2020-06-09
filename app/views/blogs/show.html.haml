@@ -1,0 +1,27 @@
+.row.row--short.relative
+  .row__medium-1-2
+    = image_tag 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80', :alt => 'Computer', :class => 'img--full-height img--background img--grayscaled'
+    .overlay.overlay--dark-color
+.page-section
+  .container
+    %h2.section-title= @blog.title
+    %p= "Published #{distance_of_time_in_words(@blog.created_at, Time.now)} ago"
+    %p= pluralize @blog.comments.count, "comment"
+    %nav.breadcrumb
+      = link_to 'Home', root_url, class: "breadcrumb-item"
+      %span.breadcrumb-item.active= @blog.title
+      - if logged_in?(:site_admin)
+        %div
+          = link_to edit_blog_path(@blog) do
+            %i.fa.fa-pencil-square-o
+          = button_to @blog, :method => :delete, :data => { :confirm => "Are you sure you want to delete that post?" }, :class => 'button button--to-delete' do
+            %i.fa.fa-trash
+
+    .generic-content-container
+      - @blog.photos.each do |photo|
+        %li= cl_image_tag photo.key, height: 300, width: 400
+      = markdown @blog.body
+    %h3.section-title= "Comments"
+    = render "comments/comment_form"
+    #comments{"data-blog-id" => @blog.id}
+      = render partial: 'comments/comment', collection: @blog.comments.by_recent

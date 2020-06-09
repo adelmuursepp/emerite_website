@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{"name" => "charset", "content" => "utf-8"}
+    %meta{"name" => "viewport", "content" => "width=device-width", "initial-scale" => 1, "shrink-to-fit" => "no"}
+    %title= @page_title
+    = csrf_meta_tags
+    %meta{"name" => "description", "content" => ""}
+    %meta{"name" => "author", "content" => "Adel Muursepp"}
+    %meta{"name" => "keywords", "content" => ""}
+
+
+    = stylesheet_pack_tag 'application'
+
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = render "shared/application_nav"
+    - if flash['alert'] || flash['notify'] || flash['error']
+      %div.alert__alert-box
+        = alerts
+    = yield
+    = render "shared/application_footer"

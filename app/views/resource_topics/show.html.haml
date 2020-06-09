@@ -1,0 +1,13 @@
+.row.row--short.relative
+  .row__medium-1-2
+    = image_tag 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80', :alt => 'Adel Muursepp', :class => 'img--full-height img--background img--grayscaled'
+    .overlay.overlay--dark-color
+.page-section
+  .container
+    %h2.section-title= @resource_topic.title
+    = markdown @resource_topic.intro
+    .generic-content-container
+      = render partial: 'resource_items/resource_item', collection: @resource_topic.resource_items.by_recent
+
+
+

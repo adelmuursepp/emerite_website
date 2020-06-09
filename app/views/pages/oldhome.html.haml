@@ -1,0 +1,38 @@
+
+%div
+  .row.row--full-height
+
+    = video_tag("waves.mp4", :autoplay => true,  :loop => true, :id => "hero-video")
+
+
+    %h1.section-title.animated.fadeInUp.delay-1s= "Emerite coding"
+    %p.animated.fadeInUp.delay-2s= "Creative solutions for web and iOS"
+    = link_to "Learn More", about_path, :class => "button button--outline animated fadeInUp delay-3s"
+.page-section.page-section--light-accent.relative
+  .container.generic-content-container
+    %h2.section-title.animated.fadeInUp.delay-1s.topic-title= "Ruby on Rails development"
+    .row
+      .row__large-3-5
+        %p.animated.fadeInUp.delay-4s
+          = "Rails is a framework for creating websites easily."
+          / %span.cursive= "I'm working on that one."
+        %p.animated.fadeInUp.delay-4s= "Apps like Instagram and AirBnB have been built using Rails"
+        %p= ""
+        / = link_to portfolios_path do
+        /   :markdown
+        /     Look at Rails projects ➡
+  / = image_tag "https://res.cloudinary.com/adelcloud/image/upload/v1583609132/veebileht_ynlgb4.jpg", :height => "500", :width => "500", :alt => "Adel Müürsepp", :class => "img--absolute-br img--backward-until-large reveal-item"
+.page-section.animated.fadeInUp
+  .container.animated.fadeInUp
+    %h2.section-title.topic-title.animated.fadeInUp.delay-2s= "iOS development"
+    %p.animated.fadeInUp.delay-5s= "Swift is the easiest way to write iPhone apps"
+    / %p= ""
+    / = link_to resource_categories_path do
+    /   :markdown
+    /     Check them out ➡
+/ .page-section
+/   .container.container--narrow.container--centered.generic-content-container
+/     %h2.section-title= "Want to work together?"
+/     %p
+/       :markdown
+/         Are you working on something useful and need a technical person who's your users' *best* advocate? I'd love to get involved. [Get in touch](#{contact_path})

@@ -1,0 +1,9 @@
+.generic-content-container
+  / %fieldset
+  /   %span.checkbox-wrapper
+  /     %input{ :type=>"checkbox"}
+  /   %span
+  /   %label= checkbox.label
+  =check_box_tag "id i dont need right now",  0, !(checkbox.checked)
+  =checkbox.label
+
