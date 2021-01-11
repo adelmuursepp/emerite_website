@@ -94,7 +94,7 @@ gem 'simple_form'
 gem 'redis', '~> 4.0', '>= 4.0.1'
 
 # Markdown and Syntax Highlighting
-gem 'redcarpet', '~> 3.4'
+gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 
 # HAML Syntax
